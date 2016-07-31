@@ -126,7 +126,7 @@ var ticksPerSecond=20,game,GameController=function()
 		this.sodDedicatedToBreeding=ko.observable(0);
 		this.isHeirsUnlocked=ko.observable(!1);
 		this.boosts=ko.observable(10);
-		this.maxBoosts=ko.observable(10);
+		this.maxBoosts=ko.observable(1000);
 		this.maleMound=ko.observableArray([]).extend(
 			{
 			rateLimit:100
@@ -664,7 +664,7 @@ var ticksPerSecond=20,game,GameController=function()
 	}
 	,n.prototype.BreedCheck=function(n)
 		{
-		if(n||this.father().currentHealth()>=this.father().health&&this.mother().currentHealth()>=this.mother().health?(this.Breed(this.mother(),this.father(),"Royal"),!n&&this.boosts()<this.maxBoosts()&&this.boosts(Math.round((this.boosts()+.1)*10)/10)):this.pauseBreeding()||(this.mother().currentHealth(this.mother().currentHealth()+this.mother().health/this.mother().actionTime),this.father().currentHealth(this.father().currentHealth()+this.father().health/this.father().actionTime)),this.prince().currentHealth()>=this.prince().health&&this.princess().currentHealth()>=this.princess().health)this.Breed(this.princess(),this.prince(),"Heir");
+		if(n||this.father().currentHealth()>=this.father().health&&this.mother().currentHealth()>=this.mother().health?(this.Breed(this.mother(),this.father(),"Royal"),!n&&this.boosts()<this.maxBoosts()&&this.boosts(Math.round((this.boosts()+25)*10)/10)):this.pauseBreeding()||(this.mother().currentHealth(this.mother().currentHealth()+this.mother().health/this.mother().actionTime),this.father().currentHealth(this.father().currentHealth()+this.father().health/this.father().actionTime)),this.prince().currentHealth()>=this.prince().health&&this.princess().currentHealth()>=this.princess().health)this.Breed(this.princess(),this.prince(),"Heir");
 		else if(this.sodDedicatedToBreeding()>0)
 			{
 			var r=this.sodRaw()/ticksPerSecond>this.sodPerSecondForBreeding()/ticksPerSecond?this.sodPerSecondForBreeding()/ticksPerSecond:this.sodRaw()/ticksPerSecond,t=this.princess().score*5,i=this.prince().score*5;
